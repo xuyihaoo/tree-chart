@@ -1,14 +1,14 @@
 ## [English](./README.md) | [中文](./README-CN.md)
 
-![Node.js CI](https://github.com/ssthouse/vue-tree-chart/workflows/Node.js%20CI/badge.svg?branch=master)
+![Node.js CI](https://github.com/easoninus/vue-tree-chart/workflows/Node.js%20CI/badge.svg?branch=master)
 
 ## Demo page
 
-https://ssthouse.github.io/vue-tree-chart/#/svgTree
+https://easoninus.github.io/vue-tree-chart/#/svgTree
 
 ## Demo Gif
 
-![demo gif](https://raw.githubusercontent.com/ssthouse/organization-chart/master/screenshots/org-chart.gif)
+![demo gif](https://raw.githubusercontent.com/easoninus/organization-chart/master/screenshots/org-chart.gif)
 
 ## Using Tech
 
@@ -30,13 +30,13 @@ https://ssthouse.github.io/vue-tree-chart/#/svgTree
 #### 1. install npm module
 
 ```shell
-npm install @ssthouse/vue-tree-chart
+npm install @easoninus/vue-tree-chart
 ```
 
 #### 2. register `vue-tree` component
 
 ```javascript
-import VueTree from '@ssthouse/vue-tree-chart'
+import VueTree from '@easoninus/vue-tree-chart'
 import Vue from 'vue'
 Vue.component('vue-tree', VueTree)
 ```

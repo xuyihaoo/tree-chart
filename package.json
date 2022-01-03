@@ -1,11 +1,11 @@
 {
   "name": "tree-chart",
   "private": true,
-  "author": "ssthouse",
+  "author": "easoninus",
   "scripts": {
     "install:deps": "lerna  bootstrap",
-    "build:component": "lerna run build:component --scope @ssthouse/vue-tree-chart",
-    "build:demo": "lerna run build --scope @ssthouse/vue-tree-chart"
+    "build:component": "lerna run build:component --scope @easoninus/vue-tree-chart",
+    "build:demo": "lerna run build --scope @easoninus/vue-tree-chart"
   },
   "devDependencies": {
     "lerna": "^4.0.0"

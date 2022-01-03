@@ -1,8 +1,8 @@
 {
-  "name": "@ssthouse/vue-tree-chart",
-  "version": "0.6.1",
+  "name": "@easoninus/vue-tree-chart",
+  "version": "0.7.5",
   "description": "A Vue.js project",
-  "author": "ssthouse",
+  "author": "easoninus",
   "main": "library/vue-tree-chart.js",
   "scripts": {
     "lint": "eslint --ext .js,.vue,.ts src",
@@ -114,6 +114,7 @@
     ]
   },
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   }
 }

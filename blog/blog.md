@@ -15,13 +15,13 @@ https://bl.ocks.org/mbostock/4339083
 ### 使用 D3.js + Canvas 渲染
 
 #### source code
-https://github.com/ssthouse/organization-chart
+https://github.com/easoninus/organization-chart
 
 #### demo page
-https://ssthouse.github.io/organization-chart/#/
+https://easoninus.github.io/organization-chart/#/
 
 
-![demo gif](https://raw.githubusercontent.com/ssthouse/organization-chart/master/screenshots/org-chart.gif)
+![demo gif](https://raw.githubusercontent.com/easoninus/organization-chart/master/screenshots/org-chart.gif)
 
 
 上面的demo就是使用 D3.js + Canvas 的方式实现的, 在组织的层数超过300时才会出现明显的卡顿, 能满足大部分的组织结构图的数据.
@@ -109,7 +109,7 @@ let links = this.treeData.links()
   }
 ```
 
-![unique color.png](https://raw.githubusercontent.com/ssthouse/organization-chart/master/screenshots/unique_color.png)
+![unique color.png](https://raw.githubusercontent.com/easoninus/organization-chart/master/screenshots/unique_color.png)
 
 
 在上面一张Canvas上监听用户点击事件, 通过象素的坐标, 在下面一张图中拿到用户点击的节点 (注意: 颜色和节点的键值对 是在下面一张Canvas绘制的时候就已经创建好的.)
@@ -163,7 +163,7 @@ please add your data drawing logic in `/src/components/org-chart.js #drawShowCan
 #### source code
 if you like it , welcome to star and fork :tada:
 
-https://github.com/ssthouse/organization-chart
+https://github.com/easoninus/organization-chart
 
 ``` bash
 # install dependencies

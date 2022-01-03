@@ -2,11 +2,11 @@
 
 ## Demo 页面
 
-https://ssthouse.github.io/vue-tree-chart/#/svgTree
+https://easoninus.github.io/vue-tree-chart/#/svgTree
 
 ## Demo 动图
 
-![demo gif](https://raw.githubusercontent.com/ssthouse/organization-chart/master/screenshots/org-chart.gif)
+![demo gif](https://raw.githubusercontent.com/easoninus/organization-chart/master/screenshots/org-chart.gif)
 
 ## 使用到的技术点
 
@@ -31,12 +31,12 @@ Svg 版本通过 Vue 进行了良好的封装,使用起来非常方便且灵活.
 
 执行下面的命令安装 Svg 版本的 tree-chart
 
-`npm install @ssthouse/vue-tree-chart`
+`npm install @easoninus/vue-tree-chart`
 
 #### 2. 注册 `vue-tree` 组件
 
 ```javascript
-import VueTree from "@ssthouse/vue-tree-chart";
+import VueTree from "@easoninus/vue-tree-chart";
 import Vue from "vue";
 Vue.component("vue-tree", VueTree);
 ```
