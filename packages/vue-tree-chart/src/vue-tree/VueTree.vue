@@ -385,46 +385,90 @@ export default {
       let isDrag = false
       // 保存鼠标点下时的位移
       let mouseDownTransform = ''
-      container.onmousedown = (event) => {
-        mouseDownTransform = svgElement.style.transform
-        startX = event.clientX
-        startY = event.clientY
-        isDrag = true
-      }
-      container.onmousemove = (event) => {
-        if (!isDrag) return
-        const originTransform = mouseDownTransform
-        let originOffsetX = 0
-        let originOffsetY = 0
-        if (originTransform) {
-          const result = originTransform.match(MATCH_TRANSLATE_REGEX)
-          if (result !== null && result.length !== 0) {
-            const [offsetX, offsetY] = result.slice(1)
-            originOffsetX = parseInt(offsetX)
-            originOffsetY = parseInt(offsetY)
+      if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        container.ontouchstart = (event) => {
+          mouseDownTransform = svgElement.style.transform
+          startX = event.targetTouches[0].pageX;
+          startY = event.targetTouches[0].pageY;
+          isDrag = true
+        }
+        container.ontouchmove = (event) => {
+          if (!isDrag) return
+          const originTransform = mouseDownTransform
+          let originOffsetX = 0
+          let originOffsetY = 0
+          if (originTransform) {
+            const result = originTransform.match(MATCH_TRANSLATE_REGEX)
+            if (result !== null && result.length !== 0) {
+              const [offsetX, offsetY] = result.slice(1)
+              originOffsetX = parseInt(offsetX)
+              originOffsetY = parseInt(offsetY)
+            }
           }
+          let newX =
+            Math.floor((event.targetTouches[0].pageX - startX) / this.currentScale) +
+            originOffsetX
+          let newY =
+            Math.floor((event.targetTouches[0].pageY - startY) / this.currentScale) +
+            originOffsetY
+          let transformStr = `translate(${newX}px, ${newY}px)`
+          if (originTransform) {
+            transformStr = originTransform.replace(
+              MATCH_TRANSLATE_REGEX,
+              transformStr
+            )
+          }
+          svgElement.style.transform = transformStr
+          this.$refs.domContainer.style.transform = transformStr
         }
-        let newX =
-          Math.floor((event.clientX - startX) / this.currentScale) +
-          originOffsetX
-        let newY =
-          Math.floor((event.clientY - startY) / this.currentScale) +
-          originOffsetY
-        let transformStr = `translate(${newX}px, ${newY}px)`
-        if (originTransform) {
-          transformStr = originTransform.replace(
-            MATCH_TRANSLATE_REGEX,
-            transformStr
-          )
-        }
-        svgElement.style.transform = transformStr
-        this.$refs.domContainer.style.transform = transformStr
-      }
 
-      container.onmouseup = (event) => {
-        startX = 0
-        startY = 0
-        isDrag = false
+        container.ontouchend = (event) => {
+          startX = 0
+          startY = 0
+          isDrag = false
+        }
+      } else {
+        container.onmousedown = (event) => {
+          mouseDownTransform = svgElement.style.transform
+          startX = event.clientX
+          startY = event.clientY
+          isDrag = true
+        }
+        container.onmousemove = (event) => {
+          if (!isDrag) return
+          const originTransform = mouseDownTransform
+          let originOffsetX = 0
+          let originOffsetY = 0
+          if (originTransform) {
+            const result = originTransform.match(MATCH_TRANSLATE_REGEX)
+            if (result !== null && result.length !== 0) {
+              const [offsetX, offsetY] = result.slice(1)
+              originOffsetX = parseInt(offsetX)
+              originOffsetY = parseInt(offsetY)
+            }
+          }
+          let newX =
+            Math.floor((event.clientX - startX) / this.currentScale) +
+            originOffsetX
+          let newY =
+            Math.floor((event.clientY - startY) / this.currentScale) +
+            originOffsetY
+          let transformStr = `translate(${newX}px, ${newY}px)`
+          if (originTransform) {
+            transformStr = originTransform.replace(
+              MATCH_TRANSLATE_REGEX,
+              transformStr
+            )
+          }
+          svgElement.style.transform = transformStr
+          this.$refs.domContainer.style.transform = transformStr
+        }
+
+        container.onmouseup = (event) => {
+          startX = 0
+          startY = 0
+          isDrag = false
+        }
       }
     },
     onClickNode(index) {
